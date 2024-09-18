@@ -14,7 +14,7 @@ export class LoginPageElements {
         }
     }
 
-    get button() {
+    get buttons() {
         return {
             login: this.page.locator('#login-button')
         }
