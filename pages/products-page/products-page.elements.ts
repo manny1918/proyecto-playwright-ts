@@ -13,9 +13,5 @@ export class ProductsPageElements {
         }
     }
 
-    get buttons() {
-        return {
-            addCart(productName: string){return this.page.locator(`//div[.="${productName}"]//ancestor::div[@class="inventory_item"]//button`)}
-        }
-    }
+    addCartButton(productName: string) { return this.page.locator(`//div[.="${productName}"]//ancestor::div[@class="inventory_item"]//button`) }
 }
