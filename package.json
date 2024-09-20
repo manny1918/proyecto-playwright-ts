@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "run-test": "npx playwright test --reporter=line,allure-playwright --headed",
-    "generate-report": "allure generate ./allure-results -o ./allure-report",
+    "generate-report": "allure generate ./allure-results -o ./allure-report  --clean",
     "open-report": "allure open ./allure-report",
-    "test": "npm run run-test && npm run generate-report && npm run open-report"
+    "test": "npm run run-test ; npm run generate-report && npm run open-report"
   },
   "keywords": [],
   "author": "",
