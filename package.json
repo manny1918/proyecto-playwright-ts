@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "run-test": "npx playwright test --reporter=line,allure-playwright --headed",
+    "generate-report": "allure generate ./allure-results -o ./allure-report",
+    "open-report": "allure open ./allure-report",
+    "test": "npm run run-test && npm run generate-report && npm run open-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
