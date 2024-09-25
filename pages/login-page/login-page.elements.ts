@@ -19,4 +19,10 @@ export class LoginPageElements {
             login: this.page.locator('#login-button')
         }
     }
+
+    get otherElements(){
+        return{
+            errorMEssage: this.page.locator('[data-test="error"]')
+        }
+    }
 }
