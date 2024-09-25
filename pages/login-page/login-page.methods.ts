@@ -31,4 +31,10 @@ export class LoginPageMethods {
         const text = await this.loginPageElements.otherElements.errorMEssage.textContent()
         expect(text).toContain(expectedText)
     }
+
+    async login(username: string, password: string){
+        await this.insertUsername(username)
+        await this.insertPassword(password)
+        await this.clickOnLoginButton()
+    }
 }
