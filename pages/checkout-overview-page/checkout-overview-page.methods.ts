@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Page, expect } from "@playwright/test";
 import { CheckoutOverviewPageElements } from "./checkout-overview-page.elements";
 import { Logger } from "../../support/logger";
 
@@ -8,7 +8,7 @@ export class CheckoutOverviewPageMethods {
 
     constructor(page: Page) {
         this.page = page;
-        this.checkoutOverviewPageElements = this.checkoutOverviewPageElements
+        this.checkoutOverviewPageElements = new CheckoutOverviewPageElements(page)
     }
 
     async clickOnCancelButton() {
@@ -19,5 +19,11 @@ export class CheckoutOverviewPageMethods {
     async clickOnFinishButton() {
         await Logger.logStep('Click on Finish button')
         await this.checkoutOverviewPageElements.buttons.finish.click();
+    }
+
+    async verifyCheckoutOverviewPageIsDisplayed(){
+        await Logger.logVerification('The Checkout Overview page should be displayed')
+        const elementCount = await this.checkoutOverviewPageElements.otherElements.pageTitle.count()
+        expect(elementCount).toEqual(1)
     }
 }

@@ -17,7 +17,7 @@ export class CheckoutPageElements{
     get buttons(){
         return{
             cancel: this.page.locator('.cart_cancel_link'),
-            continue: this.page.locator('.cart_cancel_link')
+            continue: this.page.locator('[value="CONTINUE"]')
         }
     }
 }

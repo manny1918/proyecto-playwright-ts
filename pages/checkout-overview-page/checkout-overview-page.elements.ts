@@ -13,4 +13,10 @@ export class CheckoutOverviewPageElements {
             finish: this.page.locator('.cart_button')
         }
     }
+
+    get otherElements(){
+        return{
+            pageTitle: this.page.locator('.subheader')
+        }
+    }
 }
