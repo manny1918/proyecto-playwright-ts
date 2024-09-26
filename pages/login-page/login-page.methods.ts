@@ -28,7 +28,7 @@ export class LoginPageMethods {
         await this.loginPageElements.buttons.login.click()
     }
 
-    async verifyMessage(expectedText){
+    async verifyMessage(expectedText: string){
         const text = await this.loginPageElements.otherElements.errorMEssage.textContent()
         expect(text).toContain(expectedText)
     }
@@ -36,7 +36,6 @@ export class LoginPageMethods {
     async login(user: User){
         await this.insertUsername(user.username)
         await this.insertPassword(user.password)
-        await this.page.waitForTimeout(3000)
         await this.clickOnLoginButton()
     }
 }
