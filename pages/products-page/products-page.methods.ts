@@ -22,7 +22,7 @@ export class ProductsPageMethods {
     }
 
     async verifyProductsPageIsDisplayed() {
-        await Logger.logVerification('Verify that the Products is shown')
+        await Logger.logVerification('Verify that the Products page is shown')
         const elementsCount = await this.productsPageElements.otherElements.pageTitle.count()
         expect(elementsCount).toEqual(1)
     }

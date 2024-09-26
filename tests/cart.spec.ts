@@ -7,6 +7,7 @@ import { standardUser } from '../pages/login-page/login-page.interfaces'
 import { CartPageMethods } from '../pages/cart-page/cart-page.methods'
 
 test.describe('Cart test cases', async () => {
+
     test('Add item to cart', async ({ page }) => {
         const commonPageMethods = new CommonPageMethods(page)
         const loginPageMethods = new LoginPageMethods(page)
@@ -22,5 +23,23 @@ test.describe('Cart test cases', async () => {
         await productsPageMethods.clickOnAddToCart(productName)
         await productsPageMethods.clickOnCartIcon()
         await cartPageMethods.verifyProductIsDisplayed(productName)
+    })
+
+
+    test('Remove item from cart', async ({ page }) => {
+        const commonPageMethods = new CommonPageMethods(page)
+        const loginPageMethods = new LoginPageMethods(page)
+        const productsPageMethods = new ProductsPageMethods(page)
+        const cartPageMethods = new CartPageMethods(page)
+        const productName = 'Sauce Labs Bolt T-Shirt'
+
+        Logger.logPreCondition('Item is in the cart')
+        await commonPageMethods.navigateToTheApplication()
+        await loginPageMethods.login(standardUser)
+        await productsPageMethods.clickOnAddToCart(productName)
+
+        await productsPageMethods.clickOnCartIcon()
+        await cartPageMethods.clickOnRemoveButton(productName)
+        await cartPageMethods.verifyProductIsNotDisplayed(productName)
     })
 })
