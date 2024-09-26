@@ -8,7 +8,7 @@ import { standardUser } from '../pages/login-page/login-page.interfaces'
 import { CheckoutPageMethods } from '../pages/checkout-page/checkout-page.methods'
 import { CheckoutOverviewPageMethods } from '../pages/checkout-overview-page/checkout-overview-page.methods'
 
-test.describe.only('Checkout', () => {
+test.describe('Checkout', () => {
 
     test('Checkout process', async ({ page }) => {
         const commonPageMethods = new CommonPageMethods(page)
