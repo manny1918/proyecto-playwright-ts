@@ -2,6 +2,7 @@ import { Page } from 'playwright'
 import { LoginPageElements } from './login-page.elements'
 import { Logger } from '../../support/logger'
 import { expect } from '@playwright/test'
+import { User } from './login-page.interfaces'
 
 export class LoginPageMethods {
     private page: Page
@@ -32,9 +33,10 @@ export class LoginPageMethods {
         expect(text).toContain(expectedText)
     }
 
-    async login(username: string, password: string){
-        await this.insertUsername(username)
-        await this.insertPassword(password)
+    async login(user: User){
+        await this.insertUsername(user.username)
+        await this.insertPassword(user.password)
+        await this.page.waitForTimeout(3000)
         await this.clickOnLoginButton()
     }
 }
