@@ -32,5 +32,5 @@ jobs:
       uses: actions/upload-pages-artifact@v1
       with:
         path: allure-report/
-    # - name: Deploy to Github pages
-    #   uses: allure-report/
+    - name: Deploy to Github pages
+      uses: allure-report/
